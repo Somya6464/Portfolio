@@ -1,4 +1,7 @@
+import 'package:demo/Utils/color_constant.dart';
+import 'package:demo/Utils/text_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -64,5 +67,26 @@ Widget aboutBox(BuildContext context, String text, Function()? onTap) {
             fontWeight: FontWeight.w400),
       ),
     ),
+  );
+}
+
+Widget rowWithIcon(
+    {required IconData? icon,
+    required String text,
+    Color? color,
+    double? fontsize}) {
+  return Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Icon(
+        icon,
+        color: color ?? white,
+      ),
+      gap(width: 15.w),
+      Expanded(
+          flex: 1,
+          child: TextWidgets()
+              .textWith300(text: text, color: color ?? white, size: fontsize))
+    ],
   );
 }

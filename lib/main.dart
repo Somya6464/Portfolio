@@ -1,146 +1,33 @@
-import 'package:demo/Portfolio/mobile/about_mobile.dart';
-import 'package:demo/Portfolio/mobile/certificates_mobile.dart';
-import 'package:demo/Portfolio/mobile/contact_mobile.dart';
+import 'package:demo/Portfolio/desktop/desktop_home_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'Portfolio/front.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 void main() => runApp(const MyApp());
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp( 
-      debugShowCheckedModeBanner: false,
-      
-      theme: ThemeData(
-        useMaterial3: true,
-        cardColor:const Color(0xFF111111),
-        textTheme: TextTheme(
-          displayLarge: GoogleFonts.permanentMarker(fontSize: 30,color:const Color(0xFFFFB700),fontWeight: FontWeight.w400),
-          displaySmall: GoogleFonts.permanentMarker(fontSize: 16,color:const Color(0xFFFFB700),fontWeight: FontWeight.w400),
-          headlineSmall: GoogleFonts.poppins(fontSize: 16,color: Colors.white),
-          titleLarge:const TextStyle(fontSize: 24,color: Colors.white),
-          titleMedium:  GoogleFonts.poppins(fontSize: 16,color:const Color(0xFF111111)),
-        )
+    return ScreenUtilInit(
+      enableScaleWH: () => false,
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: const GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        /* initialRoute: '/',
+        routes: {
+          '/': (context) => const DesktopUi(),
+          '/about': (context) => const MAboutUs(),
+          '/certificates': (context) => const Mcertificates(),
+          '/contact': (context) => const McontactUs(),
+        },*/
+        home: DesktopUi(),
       ),
-      initialRoute: '/home',
-      routes: {
-        '/home': (context) =>const FrontScreen(),
-        '/about': (context) =>const MAboutUs(),
-        '/certificates':(context) => const Mcertificates(),
-        '/contact': (context) =>const McontactUs(),
-
-      },
     );
-
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //     return MaterialApp(
 //       home: Scaffold(
